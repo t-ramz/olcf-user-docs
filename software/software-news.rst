@@ -12,7 +12,7 @@ Frontier: Default Core Update (Seeptember 15, 2026)
 ----------------------------------------------------
 
 On September 15, 2026, the default ``Core`` module will be upgraded from ``Core/25.03`` to ``Core/26.05``.
-For more information on ``Core/26.05`` including package changes please see :ref:`core-26.05-release`
+For more information on ``Core/26.05`` including package version changes please see :ref:`core-26.05-release`
 
 Frontier: profiling daemon enabled (August 25, 2026)
 ----------------------------------------------------
