@@ -1441,7 +1441,18 @@ The ``extended`` partition (queue) is designated for smaller long-running jobs o
 The ``debug`` quality of service (QOS) class can be used to access Frontier's compute resources for short non-production debug tasks. The QOS provides a higher priority compare to jobs of the same job size bin in production partitions. Production work and job chaining using the ``debug`` QOS is prohibited. Each user is limited to one job in any state at any one point. Attempts to submit multiple jobs to this QOS will be rejected upon job submission. Submitted jobs in this QOS cannot have a walltime greater than 2 hours. Jobs that request a longer walltime will be rejected.
 
 
-To submit a job to the ``debug`` QOS, add the `-q debug` option to your ``sbatch`` or ``salloc`` command or ``#SBATCH -q debug`` to your job script.
+To submit a job to the ``debug`` QOS, add the ``-q debug`` option to your ``sbatch`` or ``salloc`` command or ``#SBATCH -q debug`` to your job script.
+
+``develop`` Quality of Service Class
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``develop`` quality of service (QOS) class can be used to access Frontier's compute resources for short tasks at small node counts. As opposed to the ``debug`` QOS, the ``develop`` QOS has access to an isolated set of nodes through the ``service`` partition. Therefore, jobs targeting this QOS do not compete with jobs in the ``batch`` partition. The following policies are enforced for the ``develop`` QOS:
+
+* 2-Hour maximum wall time for each queued job.
+* 4-Node maximum job size for each queued job.
+* Each user will be allowed 1 running job and 1 *eligible-to-run* job at a given time. Any additional queued jobs will be held in an ineligible state until the previous job runs.
+
+To submit a job to the ``develop`` QOS, jobs must be submitted with **both** the ``-p service -q develop`` options to your ``sbatch`` or ``salloc`` command or ``#SBATCH -p service`` and ``#SBATCH -q develop`` headers to your job script. Jobs submitted with only one of those flags will not run or will be rejected.
 
 
 Allocation Overuse Policy
