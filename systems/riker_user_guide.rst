@@ -512,7 +512,7 @@ their use can be found in the related subsections.
 |            | | (see Interactive Jobs section below)                                                                                                                                       |
 +------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``srun``   | | Used to run a parallel job (job step) on the resources allocated with ``sbatch`` or ``salloc``.                                                                            |
-|            | | If necessary, srun will first create a resource allocation in which to run the parallel job(s).                                                                            |
+|            | | If necessary, ``srun`` will first create a resource allocation in which to run the parallel job(s).                                                                        |
 |            | | (see Single Command section below)                                                                                                                                         |
 +------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+ 
 
