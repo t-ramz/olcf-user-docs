@@ -1212,7 +1212,12 @@ Since all compute resources are managed and scheduled by Slurm, it is not possib
 Common Slurm Options
 --------------------
 
-The table below summarizes options for submitted jobs. Unless otherwise noted, they can be used for either batch scripts or interactive batch jobs. For scripts, they can be added on the ``sbatch`` command line or as a ``#BSUB`` directive in the batch script. (If they're specified in both places, the command line takes precedence.) This is only a subset of all available options. Check the `Slurm Man Pages <https://slurm.schedmd.com/man_index.html>`__ for a more complete list.
+The table below summarizes options for submitted jobs. 
+Unless otherwise noted, they can be used for either batch scripts or interactive batch jobs. 
+For scripts, they can be added on the ``sbatch`` command line or as a ``#SBATCH`` directive in the batch script. 
+(If they're specified in both places, the command line takes precedence.) 
+This is only a subset of all available options. 
+Check the `Slurm Man Pages <https://slurm.schedmd.com/man_index.html>`__ for a more complete list.
 
 .. table::
     :widths: 15 28 57
