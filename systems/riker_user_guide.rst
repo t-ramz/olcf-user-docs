@@ -511,7 +511,7 @@ their use can be found in the related subsections.
 | ``salloc`` | | Used to allocate an interactive Slurm job allocation, where one or more job steps (i.e., ``srun`` commands) can then be launched on the allocated resources (i.e., nodes). |
 |            | | (see Interactive Jobs section below)                                                                                                                                       |
 +------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``srun``   | | Used to run a parallel job (job step) on the resources allocated with sbatch or ``salloc``.                                                                                |
+| ``srun``   | | Used to run a parallel job (job step) on the resources allocated with ``sbatch`` or ``salloc``.                                                                            |
 |            | | If necessary, srun will first create a resource allocation in which to run the parallel job(s).                                                                            |
 |            | | (see Single Command section below)                                                                                                                                         |
 +------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+ 
