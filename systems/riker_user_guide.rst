@@ -591,7 +591,7 @@ Sharing GPU nodes
 Each GPU node has 64 Cores that can be allocated on a 1-Core basis and come with an equal share of memory (~24GB per core); however, 
 32 Cores (16 per GPU) are reserved for the GPUs and can only allocated if you also allocate the bound GPU. 
 
-The reserved cores are automatically allocated when a GPU is requested ``--gpus``.  All other cores on the GPU nodes operate as "Flex / Shared" cores that can be allocated
+The reserved cores are automatically allocated when a GPU is requested with ``--gpus``.  All other cores on the GPU nodes operate as "Flex / Shared" cores that can be allocated
 by GPU-enabled workloads & CPU-Only workloads allowing users to fill unused CPUs on GPU nodes or GPU jobs to increase beyond the default 16 Cores. 
 
 Example: Let us assume there are three users already running on two riker-gpu nodes. Pink User has 3 GPUs allocated across riker-gpu1 and riker-gpu2, 
