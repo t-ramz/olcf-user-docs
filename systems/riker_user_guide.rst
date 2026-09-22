@@ -8,6 +8,8 @@ Riker User Guide
     OLCF is pleased to announce Riker, our new data analysis and visualization cluster, which will replace the existing Andes system.
 
     Riker is a 136-node system with 128 AMD EPYC CPU-only nodes and 8 hybrid AMD EPYC CPU + NVIDIA L40S GPU nodes. The new system will provide OLCF users with upgraded capabilities for data analysis and visualization workflows.
+    Riker mounts the same user and project filesystems as Andes (``/ccs/home``, ``/ccs/proj``, and ``/lustre/orion``) so you will not need to migrate any data stored in those filesystems.
+    However, it is required to recompile programs and rebuild Python environments prior to running on Riker.
 
     All current Andes users will gain access to Riker on September 10th. Once user access begins, Riker and Andes will operate in parallel for approximately six weeks to provide users time to transition their workflows. 
     At the end of this transition period, Andes will be decommissioned. 
@@ -27,8 +29,8 @@ System Overview
 ===============
 
 Riker is the new pre-processing/post-processing and visualization cluster for the OLCF aimed to further large-scale scientific discovery alongside Frontier.
-Replacing our Andes cluster, Riker consists of 128 CPU-only nodes and 8 GPU nodes. Riker also features project-based node-sharing to allow projects to sub-divide
-their nodes amongst their users. 
+Replacing our Andes cluster, Riker consists of 128 CPU-only nodes and 8 Hybrid CPU+GPU nodes. These nodes are configured to allow multiple users to securely share the same node
+through core-level resource requests. 
 
 .. _riker-nodes:
 
@@ -1420,20 +1422,20 @@ The *node-hour* charge for each job will be calculated as follows:
 Where we take a weighted percentage of the node resources used and multiply it by the number of hours the resources were unavailable to other users. 
 ``batch job starttime`` is the time the job moves into a running state, and ``batch job endtime`` is the time the job exits a running state. 
 
-**Resources are weighted differently depending on the parition/queue**; however, the weights are overall configured to be ``X percentage of a node`` (as opposed to charging ``A`` for a core on the batch partiion and ``B`` for a core on the GPU partition).
+**Resources are weighted differently depending on the partition/queue**; however, the weights are overall configured to be ``X percentage of a node`` (as opposed to charging ``A`` for a core on the batch partition and ``B`` for a core on the GPU partition).
 
 The weight calculation on the batch partition are as follows:
 
 .. code::
 
-    node-hours = ({0.00390625} * {Number of Cores} + {0.000226581} * {Amount of Memory}) * ( batch job endtime - batch job starttime )
+    node-hours = ({0.0078125} * {Number of Cores}) * ( batch job endtime - batch job starttime )
 
 
 The weight calculation for the GPU partition are as follows:
 
 .. code::
 
-    node-hours = ({0.0015625} * {Number of Cores} + {6.66482E-05} * {Amount of Memory} + {0.4} * {Number of GPUs}) * ( batch job endtime - batch job starttime )
+    node-hours = ({0.003125} * {Number of Cores} + {0.4} * {Number of GPUs}) * ( batch job endtime - batch job starttime )
 
 
 

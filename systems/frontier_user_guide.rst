@@ -1212,7 +1212,12 @@ Since all compute resources are managed and scheduled by Slurm, it is not possib
 Common Slurm Options
 --------------------
 
-The table below summarizes options for submitted jobs. Unless otherwise noted, they can be used for either batch scripts or interactive batch jobs. For scripts, they can be added on the ``sbatch`` command line or as a ``#BSUB`` directive in the batch script. (If they're specified in both places, the command line takes precedence.) This is only a subset of all available options. Check the `Slurm Man Pages <https://slurm.schedmd.com/man_index.html>`__ for a more complete list.
+The table below summarizes options for submitted jobs. 
+Unless otherwise noted, they can be used for either batch scripts or interactive batch jobs. 
+For scripts, they can be added on the ``sbatch`` command line or as a ``#SBATCH`` directive in the batch script. 
+(If they're specified in both places, the command line takes precedence.) 
+This is only a subset of all available options. 
+Check the `Slurm Man Pages <https://slurm.schedmd.com/man_index.html>`__ for a more complete list.
 
 .. table::
     :widths: 15 28 57
@@ -4237,6 +4242,18 @@ Understanding the network counters can be challenging. If you are encountering n
 
 System Updates 
 ============== 
+
+2026-09-15
+----------
+On Tuesday, September 15, 2026, Frontier's system software was updated.
+The following changes took place:
+
+- Minor OS kernel updates.
+- Update the `Core` module default to 26.05. This impacts compiler-agnostic packages like CMake, ImageMagick, and many other package versions. See `OLCF Software News <https://docs.olcf.ornl.gov/software/software-news.html>`_ for more details.
+- Add ROCm/7.14.1 and ROCm/10.0.0. These are the first two production releases of AMD's TheRock. C/C++ codes should be able to use these ROCm versions with `cray-mpich/9.1.0` in `CPE/26.03`, but Fortran codes will not be able to leverage these new ROCm versions with the existing Cray Programming Environments.
+
+Please contact the OLCF Help Desk (help@olcf.ornl.gov) with any problems or concerns.
+
 
 2026-08-25
 ----------
