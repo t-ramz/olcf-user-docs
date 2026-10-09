@@ -1928,7 +1928,7 @@ Breaking down the ``srun`` command, we have:
 * ``--cpu-bind=threads``: binds tasks to threads
 * ``--threads-per-core=1``: use a maximum of 1 hardware thread per physical core (i.e., only use 1 logical core per physical core)
 * ``-m block:cyclic``: distribute the tasks in a block layout across nodes (default), and in a **cyclic** (round-robin) layout across L3 sockets
-* ``./hello_mpi_omp``: launches the "hello_mpi_omp" executable
+* ``./hello_jobstep``: launches the "hello_jobstep" executable
 * ``| sort``: sorts the output
 * ``| cut ...``: gets only output we care about for CPU tasks
 
